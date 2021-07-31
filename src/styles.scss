@@ -1,1 +1,64 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$w-poc-agent-primary: mat.define-palette(mat.$indigo-palette);
+$w-poc-agent-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$w-poc-agent-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$w-poc-agent-theme: mat.define-light-theme((
+  color: (
+    primary: $w-poc-agent-primary,
+    accent: $w-poc-agent-accent,
+    warn: $w-poc-agent-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($w-poc-agent-theme);
+
 /* You can add global styles to this file, and also import other style files */
+$font-fam: 'Poppins', sans-serif;
+
+.logo{
+  left: 12px;
+  width: 60px;
+  height: 60px;
+}
+
+html, body { height: 100%; }
+* { margin: 0; font-family: $font-fam }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mr-1{
+  margin-right: 10px;
+}
+.mat-icon{
+  width: 16px !important;
+  height: 16px !important;
+  padding-right: 10px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.mt-1{
+  margin-top:10px;
+}
+

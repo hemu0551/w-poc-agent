@@ -1,0 +1,65 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <div fxFlex="30">
+    <p class="merchants">Merchants</p>
+  </div>
+  <div fxFlex="70">
+    <p class="floatRight"><button mat-raised-button class="reports" [disabled]="!disableButton">Generate Reports</button>
+      <button mat-raised-button class="filter" [disabled]="disableButton">Filter</button></p>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null;onChangeAll($event)"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()"
+                    class="custom-frame">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null;onChange($event,row)"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)"
+                    class="custom-frame">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="merchantName">
+    <th mat-header-cell *matHeaderCellDef> MERCHANT NAME </th>
+    <td mat-cell *matCellDef="let element"> {{element.merchantName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="businessType">
+    <th mat-header-cell *matHeaderCellDef> BUSINESS TYPE </th>
+    <td mat-cell *matCellDef="let element"> {{element.businessType}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon class="vertIcon">more_vert</mat-icon> </th>
+    <td mat-cell *matCellDef="let element" class="vertIcon">
+      <span><mat-icon class="vertIcon" *ngIf="!selection.isSelected(element)">more_vert</mat-icon></span>
+      <span><button mat-raised-button class="filter1" *ngIf="selection.isSelected(element)" (click)="onRegMerchantsDetails(element)">View</button></span>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      >
+  </tr>
+</table>

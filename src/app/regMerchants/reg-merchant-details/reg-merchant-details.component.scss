@@ -1,0 +1,83 @@
+
+.date{
+  font-size: 10px;
+  color: #00000099;
+}
+
+.back{
+  font-size: 16px;
+  color: #746CF0;
+  float: right;
+  font-weight: 500;
+  text-decoration: none;
+}
+.merchant{
+  font-size: 10px;
+  color: #32A05F;
+  text-decoration: none;
+  background-color: #e2ffee;
+  padding: 5px;
+  border-radius: 4px;
+}
+.title{
+  color: #756F86;
+  font-size: 14px;
+}
+.title1{
+  font-size: 14px;
+}
+.aTagTitle1{
+  color: #32A05F;
+  font-size: 14px;
+}
+.aTagTitle2{
+  color: #32A05F;
+  font-size: 16px;
+}
+.adhar{
+  width:200px;
+  height: auto;
+}
+.panCard{
+  width:215px;
+  height: auto;
+}
+.textDec{
+  color: #8dc1d9;
+  text-decoration: none;
+  margin: 10px;
+}
+.imageSize{
+  width: 400px;
+  height: auto;
+  margin-right: 10px;
+}
+.scroll-container {
+  border: 2px solid silver;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &.hide-scrollbar {
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &.show-scroll {
+    overflow: auto;
+  }
+
+  div {
+    white-space: nowrap;
+    background: #efefef;
+    border: 1px solid #efefef;
+    margin: .1rem;
+    padding: .2rem .7rem;
+    &:hover {
+      cursor: pointer;
+      border-color: #ccc;
+    }
+  }
+}

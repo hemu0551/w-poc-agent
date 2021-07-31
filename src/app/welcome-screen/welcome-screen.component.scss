@@ -1,0 +1,34 @@
+.centerAlign{
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+  height: 92vh;
+}
+
+.imageCenter{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+}
+
+.font1{
+  font-size: 48px;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    height: 58px;
+    text-align: center;
+    top: 15%;
+    color: #2C2731;
+}
+
+.font2{
+  position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    height: 58px;
+    text-align: center;
+    top: 20%;
+    color: #2C2731;
+}
